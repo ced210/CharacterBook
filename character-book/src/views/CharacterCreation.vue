@@ -22,14 +22,23 @@
       </v-stepper-step>
     </v-stepper-header>
     <v-stepper-content step="1">
-      <v-card color="grey lighten-1" class="mb-12" height="200px"></v-card>
-      <v-btn color="primary" @click="e6 = 2">Continue</v-btn>
-      <v-btn text>Cancel</v-btn>
+      <choose-race-form
+        @save="
+          () => {
+            console.log('oh hi mark');
+          }
+        "
+      />
     </v-stepper-content>
   </v-stepper>
 </template>
 <script>
+import ChooseRaceForm from "../components/ChooseRaceForm.vue";
+
 export default {
+  components: {
+    ChooseRaceForm,
+  },
   name: "CharacterCreation",
   data() {
     return {};

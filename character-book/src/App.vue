@@ -1,15 +1,23 @@
 <template>
   <div id="app">
     <v-app>
-      <v-app-bar id="nav" color="primary" dark>
-        <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
-        <v-toolbar-title>Title</v-toolbar-title>
+      <v-app-bar
+        id="nav"
+        color="primary"
+        dark
+        app
+        absolute
+        collapse-on-scroll
+        scroll-target="#scrolling-techniques-2"
+      >
+        <v-app-bar-nav-icon @click="drawer = true" />
+        <v-toolbar-title v-text="'Character Book'"></v-toolbar-title>
       </v-app-bar>
       <v-navigation-drawer v-model="drawer" absolute temporary>
         <v-list nav dense>
           <v-list-item-group
             v-model="group"
-            active-class="deep-purple--text text--accent-4"
+            active-class="primary--text text--secondary"
           >
             <router-link to="/">
               <v-list-item>
@@ -24,7 +32,7 @@
                 <v-list-item-icon>
                   <v-icon>face</v-icon>
                 </v-list-item-icon>
-                <v-list-item-title>Account</v-list-item-title>
+                <v-list-item-title>Character Creation</v-list-item-title>
               </v-list-item>
             </router-link>
             <router-link to="/about">
@@ -38,7 +46,15 @@
           </v-list-item-group>
         </v-list>
       </v-navigation-drawer>
-      <router-view />
+      <v-sheet
+        id="scrolling-techniques-2"
+        class="overflow-y-auto mt-5"
+        max-height="600"
+      >
+        <v-container style="height: 1500px;" class="mt-5">
+          <router-view />
+        </v-container>
+      </v-sheet>
     </v-app>
   </div>
 </template>
@@ -70,6 +86,7 @@ export default {
   data() {
     return {
       drawer: false,
+      group: false,
     };
   },
 };

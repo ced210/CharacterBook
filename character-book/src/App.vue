@@ -1,11 +1,43 @@
 <template>
   <div id="app">
     <v-app>
-      <div id="nav">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/character-creation">Character Creation</router-link> |
-        <router-link to="/about">About</router-link>
-      </div>
+      <v-app-bar id="nav" color="primary" dark>
+        <v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+        <v-toolbar-title>Title</v-toolbar-title>
+      </v-app-bar>
+      <v-navigation-drawer v-model="drawer" absolute temporary>
+        <v-list nav dense>
+          <v-list-item-group
+            v-model="group"
+            active-class="deep-purple--text text--accent-4"
+          >
+            <router-link to="/">
+              <v-list-item>
+                <v-list-item-icon>
+                  <v-icon>home</v-icon>
+                </v-list-item-icon>
+                <v-list-item-title>Home</v-list-item-title>
+              </v-list-item>
+            </router-link>
+            <router-link to="/character-creation">
+              <v-list-item>
+                <v-list-item-icon>
+                  <v-icon>face</v-icon>
+                </v-list-item-icon>
+                <v-list-item-title>Account</v-list-item-title>
+              </v-list-item>
+            </router-link>
+            <router-link to="/about">
+              <v-list-item>
+                <v-list-item-icon>
+                  <v-icon>info</v-icon>
+                </v-list-item-icon>
+                <v-list-item-title>About</v-list-item-title>
+              </v-list-item>
+            </router-link>
+          </v-list-item-group>
+        </v-list>
+      </v-navigation-drawer>
       <router-view />
     </v-app>
   </div>
@@ -33,3 +65,12 @@
   color: #42b983;
 }
 </style>
+<script>
+export default {
+  data() {
+    return {
+      drawer: false,
+    };
+  },
+};
+</script>

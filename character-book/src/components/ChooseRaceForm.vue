@@ -1,5 +1,8 @@
 <template>
-  <div class="about">
-    <h1>Choose Your Race Form</h1>
-  </div>
+  <v-card>
+    <v-card-title>Choose Your Race Form</v-card-title>
+    <v-card-text>
+      <v-form> </v-form>
+    </v-card-text>
+  </v-card>
 </template>

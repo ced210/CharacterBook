@@ -58,9 +58,7 @@
         Choose Your Alignement
       </v-stepper-step>
       <v-stepper-content step="4">
-        <v-card>
-          <v-card-title>Choose Your Alignement</v-card-title>
-        </v-card>
+        <choose-alignement-form />
       </v-stepper-content>
       <v-stepper-step step="5" editable>
         Name Your Character
@@ -92,9 +90,7 @@
         </v-card>
       </v-stepper-content>
       <v-stepper-content step="4">
-        <v-card>
-          <v-card-title>Choose Your Alignement</v-card-title>
-        </v-card>
+        <choose-alignement-form />
       </v-stepper-content>
       <v-stepper-content step="5">
         <v-card>
@@ -106,10 +102,12 @@
 </template>
 <script>
 import ChooseRaceForm from "../components/ChooseRaceForm.vue";
+import ChooseAlignementForm from "../components/ChooseAlignementForm.vue";
 
 export default {
   components: {
     ChooseRaceForm,
+    ChooseAlignementForm,
   },
   name: "CharacterCreation",
   data() {

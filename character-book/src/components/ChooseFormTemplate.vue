@@ -7,7 +7,8 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer />
-          <slot name="actions" />
+          <v-btn @click="backAction" v-text="'back'" />
+          <v-btn color="primary" @click="continueAction" v-text="'continue'" />
         </v-card-actions>
       </v-card>
     </v-col>
@@ -15,6 +16,16 @@
 </template>
 <script>
 export default {
+  props: {
+    backAction: {
+      type: Function,
+      default: () => {}
+    },
+    continueAction: {
+      type: Function,
+      default: () => {}
+    }
+  },
   data() {
     return {};
   }

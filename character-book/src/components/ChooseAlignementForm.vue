@@ -1,5 +1,5 @@
 <template>
-  <choose-form-template>
+  <choose-form-template :back-action="controller.onBack" :continue-action="controller.onSave">
     <v-item-group v-model="controller.selectedAlignement" mandatory>
       <v-row dense>
         <v-col v-for="(alignement, index) in controller.alignements" :key="index" cols="4">
@@ -43,6 +43,8 @@ export class Alignement {
 }
 
 export class ChooseAlignementFormController {
+  onContinue = null;
+
   alignements = [
     new Alignement(1, "Lawful Good", ""),
     new Alignement(1, "Lawful Neutral", ""),
@@ -59,6 +61,7 @@ export class ChooseAlignementFormController {
 
   onSave = () => {
     console.log(this.alignements[this.selectedAlignement]);
+    this.onSaveEvent();
     return this.alignements[this.selectedAlignement];
   };
 }
@@ -66,6 +69,7 @@ export class ChooseAlignementFormController {
 export default {
   data() {
     const controller = new ChooseAlignementFormController();
+    controller.onSaveEvent = () => this.$emit("save");
     return { controller };
   }
 };

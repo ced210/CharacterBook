@@ -1,9 +1,5 @@
 <template>
-  <v-stepper
-    v-model="step"
-    non-linear
-    :vertical="$vuetify.breakpoint.smAndDown"
-  >
+  <v-stepper v-model="step" non-linear :vertical="$vuetify.breakpoint.smAndDown">
     <v-stepper-header v-if="!$vuetify.breakpoint.smAndDown">
       <v-stepper-step editable step="1">Chose Your Race</v-stepper-step>
       <v-divider />
@@ -87,18 +83,18 @@ import ChooseAlignementForm from "../components/ChooseAlignementForm.vue";
 export default {
   components: {
     ChooseRaceForm,
-    ChooseAlignementForm,
+    ChooseAlignementForm
   },
   name: "CharacterCreation",
   data() {
     return {
-      step: 1,
+      step: 1
     };
   },
   methods: {
     onAlignementSave() {
       alert("oh hi mark");
-    },
-  },
+    }
+  }
 };
 </script>

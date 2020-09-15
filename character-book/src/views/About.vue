@@ -1,30 +1,31 @@
 <template>
   <div class="about">
     <h1>le pourquoi que j'ai fait ca, c'est ca que tu peut mettre</h1>
-    <p>{{ tutorials }}</p>
+    <p>{{ races }}</p>
   </div>
 </template>
 <script>
-import TutorialDataService from "../services/TutorialDataService";
+import RaceDataService from "../services/RaceDataService";
 
 export default {
-  name: "tutorials-list",
   data() {
     return {
-      tutorials: [],
+      races: [],
       currentTutorial: null,
       currentIndex: -1,
-      title: "",
+      title: ""
     };
   },
   methods: {
     retrieveTutorials() {
-      TutorialDataService.getAll()
-        .then((response) => {
-          this.tutorials = response.data;
+      RaceDataService.getAll()
+        .then(response => {
+          console.log(response);
+          console.log(response.data);
+          this.races = response.data;
           console.log(response.data);
         })
-        .catch((e) => {
+        .catch(e => {
           console.log(e);
         });
     },
@@ -41,29 +42,29 @@ export default {
     },
 
     removeAllTutorials() {
-      TutorialDataService.deleteAll()
-        .then((response) => {
+      RaceDataService.deleteAll()
+        .then(response => {
           console.log(response.data);
           this.refreshList();
         })
-        .catch((e) => {
+        .catch(e => {
           console.log(e);
         });
     },
 
     searchTitle() {
-      TutorialDataService.findByTitle(this.title)
-        .then((response) => {
-          this.tutorials = response.data;
+      RaceDataService.findByTitle(this.title)
+        .then(response => {
+          this.races = response.data;
           console.log(response.data);
         })
-        .catch((e) => {
+        .catch(e => {
           console.log(e);
         });
-    },
+    }
   },
   mounted() {
     this.retrieveTutorials();
-  },
+  }
 };
 </script>

@@ -14,13 +14,7 @@
     <div v-else>
       <v-stepper-step editable step="1">Chose Your Race</v-stepper-step>
       <v-stepper-content step="1">
-        <choose-race-form
-          @save="
-            () => {
-              console.log('oh hi mark');
-            }
-          "
-        />
+        <choose-race-form @save="onRaceSave" />
       </v-stepper-content>
       <v-stepper-step editable step="2">Choose Your Class</v-stepper-step>
       <v-stepper-content step="2">
@@ -47,13 +41,7 @@
     </div>
     <v-stepper-items v-if="!$vuetify.breakpoint.smAndDown">
       <v-stepper-content step="1">
-        <choose-race-form
-          @save="
-            () => {
-              console.log('oh hi mark');
-            }
-          "
-        />
+        <choose-race-form @save="onRaceSave" />
       </v-stepper-content>
       <v-stepper-content step="2">
         <v-card>
@@ -94,6 +82,9 @@ export default {
   methods: {
     onAlignementSave() {
       alert("oh hi mark");
+    },
+    onRaceSave(raceId) {
+      alert("oh hi mark: " + raceId);
     }
   }
 };

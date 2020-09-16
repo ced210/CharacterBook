@@ -20,14 +20,6 @@ class TutorialDataService {
   delete(id) {
     return http.delete(`/races/${id}`);
   }
-
-  deleteAll() {
-    return http.delete(`/races`);
-  }
-
-  findByTitle(title) {
-    return http.get(`/races?title=${title}`);
-  }
 }
 
 export default new TutorialDataService();

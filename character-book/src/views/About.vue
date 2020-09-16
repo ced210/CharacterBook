@@ -36,11 +36,6 @@ export default {
       this.currentIndex = -1;
     },
 
-    setActiveTutorial(tutorial, index) {
-      this.currentTutorial = tutorial;
-      this.currentIndex = index;
-    },
-
     removeAllTutorials() {
       RaceDataService.deleteAll()
         .then(response => {

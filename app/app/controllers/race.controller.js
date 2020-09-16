@@ -19,7 +19,8 @@ exports.create = (req, res) => {
   };
 
   // Save Race in the database
-  Races.create(race)
+  // Races.create(race);
+  Races.create(req.body)
     .then((data) => {
       res.send(data);
     })

@@ -9,6 +9,18 @@ module.exports = (sequelize, Sequelize) => {
     Description: {
       type: Sequelize.STRING,
     },
+    SizeDescription: {
+      type: Sequelize.STRING,
+    },
+    AgeDescription: {
+      type: Sequelize.STRING,
+    },
+    SpeedDescription: {
+      type: Sequelize.STRING,
+    },
+    LanguageDescription: {
+      type: Sequelize.STRING,
+    },
   });
   return Race;
 };

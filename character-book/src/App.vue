@@ -14,10 +14,7 @@
       </v-app-bar>
       <v-navigation-drawer v-model="drawer" temporary app>
         <v-list nav dense>
-          <v-list-item-group
-            v-model="group"
-            active-class="primary--text text--secondary"
-          >
+          <v-list-item-group v-model="group" active-class="primary--text text--secondary">
             <v-list-item to="/">
               <v-list-item-icon>
                 <v-icon>home</v-icon>
@@ -36,6 +33,12 @@
               </v-list-item-icon>
               <v-list-item-title>About</v-list-item-title>
             </v-list-item>
+            <v-list-item to="/admin">
+              <v-list-item-icon>
+                <v-icon>settings</v-icon>
+              </v-list-item-icon>
+              <v-list-item-title>Admin</v-list-item-title>
+            </v-list-item>
           </v-list-item-group>
         </v-list>
       </v-navigation-drawer>
@@ -44,7 +47,7 @@
           <router-view />
         </v-container>
       </v-main>
-      <v-footer app> </v-footer>
+      <v-footer app></v-footer>
     </v-app>
   </div>
 </template>
@@ -76,8 +79,8 @@ export default {
   data() {
     return {
       drawer: false,
-      group: false,
+      group: false
     };
-  },
+  }
 };
 </script>

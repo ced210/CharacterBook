@@ -1,5 +1,9 @@
 <template>
-  <v-stepper v-model="step" non-linear :vertical="$vuetify.breakpoint.smAndDown">
+  <v-stepper
+    v-model="step"
+    non-linear
+    :vertical="$vuetify.breakpoint.smAndDown"
+  >
     <v-stepper-header v-if="!$vuetify.breakpoint.smAndDown">
       <v-stepper-step editable step="1">Chose Your Race</v-stepper-step>
       <v-divider />
@@ -18,9 +22,7 @@
       </v-stepper-content>
       <v-stepper-step editable step="2">Choose Your Class</v-stepper-step>
       <v-stepper-content step="2">
-        <v-card>
-          <v-card-title>Choose Your Class</v-card-title>
-        </v-card>
+        <choose-class-form @save="onClassSave" />
       </v-stepper-content>
       <v-stepper-step editable step="3">Choose Your Background</v-stepper-step>
       <v-stepper-content step="3">
@@ -44,9 +46,7 @@
         <choose-race-form @save="onRaceSave" />
       </v-stepper-content>
       <v-stepper-content step="2">
-        <v-card>
-          <v-card-title>Choose Your Class</v-card-title>
-        </v-card>
+        <choose-class-form @save="onClassSave" />
       </v-stepper-content>
       <v-stepper-content step="3">
         <v-card>
@@ -66,11 +66,13 @@
 </template>
 <script>
 import ChooseRaceForm from "../components/ChooseRaceForm.vue";
+import ChooseClassForm from "../components/ChooseClassForm.vue";
 import ChooseAlignementForm from "../components/ChooseAlignementForm.vue";
 
 export default {
   components: {
     ChooseRaceForm,
+    ChooseClassForm,
     ChooseAlignementForm
   },
   name: "CharacterCreation",
@@ -85,6 +87,9 @@ export default {
     },
     onRaceSave(raceId) {
       alert("oh hi mark: " + raceId);
+    },
+    onClassSave(classId) {
+      alert("oh hi mark: " + classId);
     }
   }
 };

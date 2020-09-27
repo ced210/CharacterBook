@@ -22,5 +22,6 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 db.race = require("./race.model.js")(sequelize, Sequelize);
+db.class = require("./classe.model.js")(sequelize, Sequelize);
 
 module.exports = db;

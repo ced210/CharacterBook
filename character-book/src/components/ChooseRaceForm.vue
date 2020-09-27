@@ -11,7 +11,9 @@
             <v-list-item
               v-for="(race, i) in controller.races"
               :key="i"
-              :class="`elevation-${controller.selectedRaceIndex === i ? 10 : 0}`"
+              :class="
+                `elevation-${controller.selectedRaceIndex === i ? 10 : 0}`
+              "
               @click="controller.onHoverRace(i)"
             >
               <v-list-item-content>
@@ -41,19 +43,19 @@
               </v-col>
               <v-col lg="6">
                 <h3 class="text-decoration-underline">Size</h3>
-                <p>{{controller.hoverRace.SizeDescription}}</p>
+                <p>{{ controller.hoverRace.SizeDescription }}</p>
               </v-col>
               <v-col lg="6">
                 <h3 class="text-decoration-underline">Age</h3>
-                <p>{{controller.hoverRace.AgeDescription}}</p>
+                <p>{{ controller.hoverRace.AgeDescription }}</p>
               </v-col>
               <v-col lg="6">
                 <h3 class="text-decoration-underline">Speed</h3>
-                <p>{{controller.hoverRace.SpeedDescription}}</p>
+                <p>{{ controller.hoverRace.SpeedDescription }}</p>
               </v-col>
               <v-col lg="6">
                 <h3 class="text-decoration-underline">Languages</h3>
-                <p>{{controller.hoverRace.LanguageDescription}}</p>
+                <p>{{ controller.hoverRace.LanguageDescription }}</p>
               </v-col>
             </v-row>
           </v-col>

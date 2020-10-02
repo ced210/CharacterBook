@@ -20,8 +20,9 @@ jobs:
       with:
         node-version: '12.13.0'
 
-    - name: start server
-      run: start
+    - name: npm start
+      run: |
+        npm run start
 
     - name: 'Deploy to Azure Web App'
       uses: azure/webapps-deploy@v2
